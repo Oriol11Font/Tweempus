@@ -5,6 +5,8 @@ import { SharedModule } from '../shared/shared.module';
 import { ProfileRoutingModule } from './profile-routing.module';
 
 import { ProfileComponent } from './profile.component';
+import { FavoriteTwimpsComponent } from './favorite-twimps/favorite-twimps.component';
+import { MyTwimpsComponent } from './my-twimps/my-twimps.component';
 
 @NgModule({
   imports: [
@@ -12,6 +14,6 @@ import { ProfileComponent } from './profile.component';
     SharedModule,
     ProfileRoutingModule
   ],
-  declarations: [ProfileComponent]
+  declarations: [ProfileComponent, FavoriteTwimpsComponent, MyTwimpsComponent]
 })
 export class ProfileModule { }
