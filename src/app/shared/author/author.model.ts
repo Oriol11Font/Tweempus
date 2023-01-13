@@ -7,7 +7,7 @@ export class Author {
     constructor(id: string) {
         this._id = id;
         this._url = '';
-        this._fullName = 'Author';
+        this._fullName = 'Font';
         this._image = 'assets/images/google-icon.png';
     }
 
@@ -29,7 +29,7 @@ export class Author {
 
     set id(id: string) {
         this._id = id;
-    } 
+    }
 
     set url(url: string) {
         this._url = url;
