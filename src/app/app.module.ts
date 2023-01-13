@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { LoginModule } from './login/login.module';
 import { ProfileModule } from './profile/profile.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ErrorRoutingModule } from './error/error-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     LoginModule,
     ProfileModule,
     DashboardModule,
+    ErrorRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
