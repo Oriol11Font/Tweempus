@@ -29,15 +29,18 @@ export class TwimpService {
     );
   }
 
-  getFavoriteByAuthor(idAuthor: string, idTwimp: string): boolean {
-    this.getFavoriteTwimpsList(idAuthor).subscribe(favorites => {
+  getFavoriteByAuthor(idAuthor: string, idTwimp: string): Observable<boolean> {
+    return this.httpClient.get(this.urlFavorite + '/' + idAuthor).pipe(
+      map((response: any) => {
+        let favorites: string[] = response['twimps'];
         if (favorites.indexOf(idTwimp) == -1) {
           return false;
         } else {
           return true;
         }
-    });
-    return false;
+      }),
+      catchError(this.handleError)
+    );
   }
 
   handleError(error: any) {
@@ -47,35 +50,25 @@ export class TwimpService {
       return throwError(() => errMsg);
   }
 
-  getFavoriteTwimpsList(idAuthor: string): Observable<string[]> {
+  intervalFavorite(idAuthor: string, idTwimp: string) {
     return this.httpClient.get(this.urlFavorite + '/' + idAuthor).pipe(
       map((response: any) => {
-        console.log(response)
-        return response['twimps'];
+        let favorites: string[] = response['twimps'];
+        this.updateFavoritesTwimps(favorites, idTwimp, idAuthor);
       }),
       catchError(this.handleError)
     );
   }
 
-  intervalFavorite(idAuthor: string, idTwimp: string): void {
-    this.getFavoriteTwimpsList(idAuthor).subscribe(favTwimps => {
-      this.updateFavoritesTwimps(favTwimps, idTwimp, idAuthor);
-    });
-  }
-
-  updateFavoritesTwimps(favorites: string[], idTwimp: string, idAuthor: string): void {
-    console.log("Arriba a update " + favorites)
+  updateFavoritesTwimps(favorites: string[], idTwimp: string, idAuthor: string) {
     let index: number = favorites.indexOf(idTwimp);
     if (index == -1) {
-      console.log("añadee: " + index)
       favorites.push(idTwimp);
     } else {
-      console.log("borra: " + index)
       favorites.splice(index, 1);
     }
 
     let favoritesTwimps: Object = { 'id': idAuthor, 'twimps': favorites }
-    console.log(favoritesTwimps);
     this.httpClient.patch(this.urlFavorite, favoritesTwimps).pipe(
       catchError(this.handleError)
     );
