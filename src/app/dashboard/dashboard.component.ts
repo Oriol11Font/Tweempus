@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵisObservable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 
 import { AuthorService } from '../shared/author/author.service';
@@ -24,10 +24,9 @@ export class DashboardComponent implements OnInit {
         from(twimps).subscribe(twimp => {
           this.authorService.getAuthors(twimp.author.id).subscribe(author => {
             twimp.author = author;
-            this.twimpService.getFavoriteByAuthor('1', twimp.id).subscribe(favorite => {
-              twimp.favorite = favorite;
-              this.twimpList.push(twimp);
-            })
+            let favorite = this.twimpService.getFavoriteByAuthor('1', twimp.id)
+            twimp.favorite = favorite;
+            this.twimpList.push(twimp);
           })
         })
       });
