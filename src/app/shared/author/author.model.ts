@@ -4,10 +4,10 @@ export class Author {
     private _fullName: string;
     private _image: string;
 
-    constructor(id: string) {
-        this._id = id;
+    constructor(idAuthor: string) {
+        this._id = idAuthor;
         this._url = '';
-        this._fullName = 'Font';
+        this._fullName = 'Name';
         this._image = 'assets/images/google-icon.png';
     }
 
