@@ -10,12 +10,10 @@ import { ProfileModule } from './profile/profile.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CreateTwimpModule } from './create-twimp/create-twimp.module';
 import { ErrorModule } from './error/error.module';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    EditProfileComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

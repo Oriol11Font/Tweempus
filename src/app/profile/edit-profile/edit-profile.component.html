@@ -1,0 +1,28 @@
+<section class="main section_signup">
+  <div class="signup_box rubberBand">
+    <img class="signup_image" src="{{image}}">
+    <form class="signup_form" [formGroup]="newUserForm" (ngSubmit)="saveProfile(newUserForm)">
+      <!-- NICK -->
+      <label class="signup_form_label">Nick:*</label>
+      <input type="text" class="signup_form_input-text" value="{{idAuthor}}" disabled>
+      <!-- NICK -->
+      <br>
+      <!-- FULL NAME -->
+      <label class="signup_form_label">Introduce tu nombre:*</label>
+      <div class="signup_form_error" *ngIf="newUserForm.get('fullName')!.hasError('required') && !newUserForm.get('fullName')!.pristine">
+        El nombre es obligatorio
+      </div>
+      <div class="signup_form_error" *ngIf="newUserForm.get('fullName')!.hasError('minlength') && !newUserForm.get('fullName')!.pristine">
+        Tu nombre debe tener como mínimo 3 carácteres
+      </div>
+      <input type="text" class="signup_form_input-text" formControlName="fullName">
+      <!-- FULL NAME -->
+      <br>
+      <!-- IMAGE -->
+      <label class="signup_form_label">Añade una URL para tu imagen de perfil:</label>
+      <input type="url" class="signup_form_input-text" formControlName="image">
+      <!-- IMAGE -->
+      <button type="submit" class="signup_button" [disabled]="newUserForm.invalid">Guardar perfil</button>
+    </form>
+  </div>
+</section>

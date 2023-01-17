@@ -39,6 +39,14 @@ export class AuthorService {
     );
   }
 
+  updateAuthor(idAuthor: string, fullName: string, image: string): Observable<any> {
+    let dbAuthor: any = { 'id': idAuthor, 'fullName': fullName, 'image': image };
+
+    return this.httpClient.patch(this.url, dbAuthor).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   createFavorite(idAuthor: string): Observable<any> {
     let dbAuhtorFav: any = { 'id': idAuthor, 'twimps': [] };
 
