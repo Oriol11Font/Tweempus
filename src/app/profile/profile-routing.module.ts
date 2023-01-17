@@ -8,13 +8,13 @@ import { ProfileComponent } from './profile.component';
 
 const profileRoutes: Routes = [
     {
-      path: 'profile',
+      path: 'profile/:id',
       component: ProfileComponent,
       canActivate: [AuthGuardService],
       children: [
         {
           path: '',
-          redirectTo: '/profile/my-twimps',
+          redirectTo: 'my-twimps',
           pathMatch: 'full'
         },
         {

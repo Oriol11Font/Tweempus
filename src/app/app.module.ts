@@ -8,11 +8,14 @@ import { CoreModule } from './core/core.module';
 import { LoginModule } from './login/login.module';
 import { ProfileModule } from './profile/profile.module';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { ErrorRoutingModule } from './error/error-routing.module';
+import { CreateTwimpModule } from './create-twimp/create-twimp.module';
+import { ErrorModule } from './error/error.module';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,8 @@ import { ErrorRoutingModule } from './error/error-routing.module';
     LoginModule,
     ProfileModule,
     DashboardModule,
-    ErrorRoutingModule
+    CreateTwimpModule,
+    ErrorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

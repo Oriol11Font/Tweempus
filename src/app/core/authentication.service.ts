@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AuthorService } from '../shared/author/author.service';
 import { Token } from './token.model';
 
@@ -10,7 +11,7 @@ import { Token } from './token.model';
 })
 export class AuthenticationService {
 
-  private url:string = 'http://localhost:3000/authenticated';
+  private url:string = environment.url + 'authenticated';
 
   token: Token | null = null;
 
@@ -21,7 +22,7 @@ export class AuthenticationService {
   ) { }
 
   login(idAuthor: string): void {
-    this.authorService.getAuthors(idAuthor).subscribe(author => {
+    this.authorService.getAuthor(idAuthor).subscribe(author => {
       let tokenGenerated = this.generateToken();
       this.saveSession(tokenGenerated, author.id).subscribe((response: any) => {
         this.token = new Token(response['id'], response['author']);

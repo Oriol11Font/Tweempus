@@ -14,6 +14,8 @@ export class TwimpCardComponent {
   constructor(private twimpService: TwimpService) { }
 
   favoriteTwimps() {
-    this.twimpService.intervalFavorite(this.twimp.author.id, this.twimp.id)
+    this.twimpService.intervalFavorite('1').subscribe(favorites => {
+      this.twimpService.updateFavoritesTwimps(favorites, this.twimp.id, '1');
+    })
   }
 }

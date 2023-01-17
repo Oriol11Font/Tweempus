@@ -1,4 +1,4 @@
-.login_box {
+.signup_box {
   width: 90%;
   margin: 1em auto;
   background-color: white;
@@ -8,15 +8,19 @@
   min-height: 300px;
 }
 
-.login_image {
+.signup_title {
+  text-align: center;
+}
+
+.signup_image {
   margin: 0 auto 1em auto;
   display: block;
   width: 100%;
   max-width: 150px;
+  border-radius: 50%;
 }
 
-.login_form_label {
-  text-align: center;
+.signup_form_label {
   font-size: 98%;
   word-spacing: -0.4pt;
   display: block;
@@ -24,8 +28,7 @@
   width: 80%;
 }
 
-.login_form_error {
-  text-align: center;
+.signup_form_error {
   font-size: 75%;
   word-spacing: -0.4pt;
   margin: 20px auto;
@@ -33,7 +36,7 @@
   color: red;
 }
 
-.login_form_input_text {
+.signup_form_input-text {
   display: block;
   padding: 10px;
   margin: 20px auto;
@@ -41,17 +44,18 @@
   border: none;
   border-bottom: solid 2px #c9c9c9;
   transition: border 0.3s;
+  width: 60%;
 }
 
-.login_form_input_text:focus {
+.signup_form_input-text:focus {
   border-bottom: solid 2px #969696;
 }
 
-.login_button {
+.signup_button {
   width: 80%;
   height: 50px;
   background-color: #d94f5c;
-  margin: 20px auto;
+  margin: 30px auto 20px;
   display: block;
   color: white;
   border: none;
@@ -61,64 +65,14 @@
   cursor: pointer;
 }
 
-.login_button:hover {
+.signup_button:hover {
   transition: .35s ease-in-out;
   background-color: #993333;
 }
 
-.login_button:active {
+.signup_button:active {
   transition: .35s ease-in-out;
   background-color: #c64652;
-}
-
-.create_icon {
-  display: none;
-}
-
-
-/*animacion*/
-
-.fadein {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-
-/*the animation definition*/
-
-@-webkit-keyframes fadeInLeft {
-  0% {
-      opacity: 0;
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0)
-  }
-  100% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none
-  }
-}
-
-@keyframes fadeInLeft {
-  0% {
-      opacity: 0;
-      -webkit-transform: translate3d(-100%, 0, 0);
-      -ms-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0)
-  }
-  100% {
-      opacity: 1;
-      -webkit-transform: none;
-      -ms-transform: none;
-      transform: none
-  }
-}
-
-.fadeInLeft {
-  -webkit-animation-name: fadeInLeft;
-  animation-name: fadeInLeft
 }
 
 
@@ -130,7 +84,7 @@
  ------------------------------------------------------------------------- */
 
 @media (min-width: 768px) {
-  .login_box {
+  .signup_box {
       width: 60%;
   }
 }
